@@ -11,7 +11,7 @@ import (
 	test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
 )
 
-func testEc2Instance(t *testing.T) {
+func TestEc2Instance(t *testing.T) {
 	t.Parallel()
 
 	workingDir := "../"

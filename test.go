@@ -1,16 +1,21 @@
-package test
+package aws
 
 import (
 	"fmt"
-	"testing"
 
-	"github.com/gruntwork-io/terratest/tree/master/modules/aws"
-
+	"github.com/aws/aws-sdk-go/aws"
 	"github.com/gruntwork-io/terratest/modules/terraform"
-
-	// test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
-	test_structure "github.com/gruntwork-io/terratest/tree/master/modules/test-structure"
+	"github.com/gruntwork-io/terratest/modules/testing"
 )
+
+// import (
+// 	"fmt"
+// 	"testing"
+
+// 	"github.com/gruntwork-io/terratest/modules/aws"
+// 	"github.com/gruntwork-io/terratest/modules/terraform"
+// 	test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
+// )
 
 func TestCreateEc2Instance(t *testing.T) {
 	t.Parallel()

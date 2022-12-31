@@ -3,41 +3,27 @@ package test
 import (
 	"fmt"
 	"testing"
+	"time"
 
-	// "mpiawstests/utils"
+	http_helper "github.com/gruntwork-io/terratest/modules/http-helper"
 
-	"github.com/gruntwork-io/terratest/modules/random"
 	"github.com/gruntwork-io/terratest/modules/terraform"
-	test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
 )
 
-func TestEc2Instance(t *testing.T) {
+func TestTerraformAwsHelloWorldExample(t *testing.T) {
 	t.Parallel()
 
-	workingDir := "../"
-	productName := "ec2instance"
-	runId := random.UniqueId()
-	uniqueProductName := fmt.Sprintf("%s-%s", productName, runId)
-
-	defer test_structure.RunTestStage(t, "cleanup_terraform", func() {
-		terraformOptions := test_structure.LoadTerraformOptions(t, workingDir)
-		terraform.Destroy(t, terraformOptions)
+	// retryable errors in terraform testing.
+	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
+		TerraformDir: "./",
 	})
 
-	// defer test_structure.RunTestStage(t, "collect_logs", func() {
-	// 	// utils.CollectProductLogs(t, uniqueProductName)
-	// })
+	defer terraform.Destroy(t, terraformOptions)
 
-	test_structure.RunTestStage(t, "deploy_terraform", func() {
-		terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-			TerraformDir:    workingDir,
-			TerraformBinary: "terragrunt",
-			EnvVars: map[string]string{
-				"ec2instance": uniqueProductName,
-			},
-			NoColor: true,
-		})
-		test_structure.SaveTerraformOptions(t, workingDir, terraformOptions)
-		terraform.InitAndApply(t, terraformOptions)
-	})
+	terraform.InitAndApply(t, terraformOptions)
+
+	publicIp := terraform.Output(t, terraformOptions, "public_ip")
+
+	url := fmt.Sprintf("http://%s:8080", publicIp)
+	http_helper.HttpGetWithRetry(t, url, nil, 200, "Hello, World!", 30, 5*time.Second)
 }

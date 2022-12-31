@@ -8,7 +8,8 @@ import (
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
 
-	test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
+	// test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
+	test_structure "github.com/gruntwork-io/terratest/tree/master/modules/test-structure"
 )
 
 func TestCreateEc2Instance(t *testing.T) {

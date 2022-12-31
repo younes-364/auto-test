@@ -15,7 +15,7 @@ func TestTerraformAwsHelloWorldExample(t *testing.T) {
 
 	// retryable errors in terraform testing.
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-		TerraformDir: "./",
+		TerraformDir: "C:\\Users\\admin\\Documents\\aterratest\\auto-test",
 	})
 
 	defer terraform.Destroy(t, terraformOptions)

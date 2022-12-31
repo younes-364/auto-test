@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/gruntwork-io/terratest/modules/aws"
+	"github.com/gruntwork-io/terratest/tree/master/modules/aws"
+
 	"github.com/gruntwork-io/terratest/modules/terraform"
+
 	test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
 )
 
@@ -18,7 +20,7 @@ func TestCreateEc2Instance(t *testing.T) {
 	// Create a Terraform options struct
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
-		TerraformDir: "../examples/ec2-instance",
+		TerraformDir: "../auto-test",
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{

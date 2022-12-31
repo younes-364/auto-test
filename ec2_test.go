@@ -6,7 +6,6 @@ import (
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
-
 func TestMyTerraformCode(t *testing.T) {
 	t.Parallel()
 

@@ -14,7 +14,7 @@ import (
 func testEc2Instance(t *testing.T) {
 	t.Parallel()
 
-	workingDir := "C:\\Users\\admin\\Documents\\auto-test-terratest\\auto-test"
+	workingDir := "../"
 	productName := "ec2instance"
 	runId := random.UniqueId()
 	uniqueProductName := fmt.Sprintf("%s-%s", productName, runId)

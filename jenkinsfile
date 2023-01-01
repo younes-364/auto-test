@@ -8,16 +8,6 @@ pipeline {
                 sh "go install github.com/gruntwork-io/terratest/modules/test-structure"
             }
         }
-        stage('Run Tests') {
-            steps {
-                sh 'go test -v ./'
-            }
-        }
-        stage('Upload Results') {
-            steps {
-                sh 'curl -X POST -F "file=@test-results.xml" http://reporting-server/upload'
-            }
-        }
         stage('Configure Terraform Cloud') {
             steps {
                 env.ATLAS_TOKEN = 'eM6P0JyKaZzJaA.atlasv1.U0oMslxMeZtNlTMM5owqnPg0MomT8GIHa2GhyrTNl0zgE7vzksFfzCqHF2Wjzyuaflw'
@@ -39,5 +29,15 @@ pipeline {
                 )
             }
         }
+        stage('Run Tests') {
+            steps {
+                sh 'go test -v ./'
+            }
+        }
+        // stage('Upload Results') {
+        //     steps {
+        //         sh 'curl -X POST -F "file=@test-results.xml" http://reporting-server/upload'
+        //     }
+        // }
     }
 }

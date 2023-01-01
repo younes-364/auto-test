@@ -52,7 +52,7 @@ func TestTerraformAwsHelloWorldExample(t *testing.T) {
 
 	// retryable errors in terraform testing.
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-		TerraformDir: "C:\\Users\\admin\\Documents\\aterratest\\auto-test",
+		TerraformDir: "./",
 	})
 
 	os.Setenv("ATLAS_TOKEN", "eM6P0JyKaZzJaA.atlasv1.U0oMslxMeZtNlTMM5owqnPg0MomT8GIHa2GhyrTNl0zgE7vzksFfzCqHF2Wjzyuaflw")

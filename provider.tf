@@ -1,20 +1,12 @@
-backend "remote" {
-  organization = "my-organization"
-
-  workspaces {
-    name = "my-workspace"
-  }
-}
-
 terraform {
 
-  # cloud {
-  #   organization = "My-Organization394"
-  #   hostname = "app.terraform.io"
-  #   workspaces {
-  #     name = "test-auto"
-  #   }
-  # }
+  cloud {
+    organization = "My-Organization394"
+    hostname = "app.terraform.io"
+    workspaces {
+      name = "test-auto"
+    }
+  }
   required_providers {
     aws = {
       source = "hashicorp/aws"

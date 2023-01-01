@@ -1,4 +1,8 @@
 terraform {
+  provider "tfe" {
+    hostname = "app.terraform.io"
+    token = "eM6P0JyKaZzJaA.atlasv1.U0oMslxMeZtNlTMM5owqnPg0MomT8GIHa2GhyrTNl0zgE7vzksFfzCqHF2Wjzyuaflw"
+  }
   cloud {
     organization = "My-Organization394"
 

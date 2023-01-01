@@ -1,3 +1,11 @@
+backend "remote" {
+  organization = "my-organization"
+
+  workspaces {
+    name = "my-workspace"
+  }
+}
+
 terraform {
 
   # cloud {

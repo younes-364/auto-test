@@ -7,14 +7,6 @@ terraform {
   #     name = "test-auto"
   #   }
   # }
-   backend "remote" {
-    organization = "My-Organization394"
-
-    workspaces {
-      name = "my-app-prod"
-    }
-  }
-
   required_providers {
     aws = {
       source = "hashicorp/aws"

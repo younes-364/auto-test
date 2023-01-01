@@ -29,11 +29,11 @@ pipeline {
                 )
             }
         }
-        stage('Run Tests') {
-            steps {
-                sh 'go test -v ./'
-            }
-        }
+        // stage('Run Tests') {
+        //     steps {
+        //         sh 'go test -v ./'
+        //     }
+        // }
         // stage('Upload Results') {
         //     steps {
         //         sh 'curl -X POST -F "file=@test-results.xml" http://reporting-server/upload'

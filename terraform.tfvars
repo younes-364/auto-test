@@ -1,0 +1,4 @@
+AWS_DEFAULT_REGION = "eu-central-1"
+AWS_ACCESS_KEY_ID = "AKIAVPGBT54OGVNNC3XX"
+AWS_SECRET_ACCESS_KEY = "govjglUYUf5qdiOvPvmPueWYCJncDRpEQZnV"
+instance_type  = "t2.small"

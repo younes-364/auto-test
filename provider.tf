@@ -1,12 +1,12 @@
 terraform {
 
-  cloud {
-    organization = "My-Organization394"
-    hostname = "app.terraform.io"
-    workspaces {
-      name = "test-auto"
-    }
-  }
+  # cloud {
+  #   organization = "My-Organization394"
+  #   hostname = "app.terraform.io"
+  #   workspaces {
+  #     name = "test-auto"
+  #   }
+  # }
 
   required_providers {
     aws = {

@@ -2,7 +2,7 @@ terraform {
 
   cloud {
     organization = "My-Organization394"
-
+    hostname = "app.terraform.io"
     workspaces {
       name = "test-auto"
     }
